@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.webfaces</groupId>
-    <artifactId>webfaces-demo</artifactId>
+    <artifactId>webfaces-slides-demo</artifactId>
     <version>0.1-SNAPSHOT</version>
 
     <repositories>
@@ -13,6 +13,12 @@
             <id>jvnet-nexus-snapshots</id>
             <name>jvnet-nexus-snapshots</name>
             <url>https://maven.java.net/content/repositories/snapshots/</url>
+        </repository>
+        <repository>
+            <id>central</id>
+            <name>Maven Repository Switchboard</name>
+            <layout>default</layout>
+            <url>http://repo1.maven.org/maven2</url>
         </repository>
     </repositories>
 
@@ -26,6 +32,11 @@
             <groupId>org.webfaces</groupId>
             <artifactId>webfaces</artifactId>
             <version>0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>6.0</version>
         </dependency>
     </dependencies>
 
