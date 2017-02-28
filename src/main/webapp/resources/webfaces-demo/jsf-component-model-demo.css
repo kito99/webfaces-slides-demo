@@ -1,0 +1,9 @@
+.component-demo-header, .component-demo-footer {
+    border: 1px;
+    border-style: solid;
+    padding: .25em;
+}
+
+.component-demo-message-body {
+    padding: 1em;
+}

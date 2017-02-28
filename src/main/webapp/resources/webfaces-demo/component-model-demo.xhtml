@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:cc="http://java.sun.com/jsf/composite"
+                xmlns:jsf="http://xmlns.jcp.org/jsf" xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <cc:interface componentType="org.webfaces.ComponentModelDemo">
+        <cc:attribute name="widgetVar" type="java.lang.String" shortDescription="Name of JavaScript widget"/>
+        <cc:attribute name="message" type="java.lang.String" shortDescription="Message to display"/>
+        <cc:facet name="header" shortDescription="This is the header"/>
+        <cc:facet name="footer" shortDescription="This is the footer"/>
+    </cc:interface>
+    <cc:implementation>
+        <h:outputScript name="jsf-component-model-demo.js" library="webfaces-demo" target="head"/>
+        <h:outputStylesheet name="jsf-component-model-demo.css" library="webfaces-demo" target="head"/>
+        <f:event type="preRenderComponent" listener="#{cc.preRender}"/>
+
+            <div id="#{cc.clientId}">
+                <div id="header" class="component-demo-header">
+                    <cc:renderFacet name="header"/>
+                </div>
+                <div id="#{cc.clientId}:message" class="component-demo-message-body">#{cc.attrs.message}</div>
+                <cc:insertChildren/>
+                <div id="footer" class="component-demo-footer">
+                    <cc:renderFacet name="footer"/>
+                </div>
+            </div>
+
+        <h:outputScript>
+            window["#{cc.attrs.widgetVar}"] =
+                new ComponentModelDemo(document.getElementById("#{cc.clientId}"), "#{cc.attrs.message}");
+        </h:outputScript>
+
+    </cc:implementation>
+
+</ui:composition>
